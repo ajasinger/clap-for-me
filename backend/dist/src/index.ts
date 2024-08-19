@@ -6,6 +6,6 @@ app.get("/", (req, res) => {
     res.send("hello world");
 });
 
-app.listen(5000, () => {
-    console.log("server is running on 5000");
+app.listen(5001, () => {
+    console.log("server is running on 5001");
 });

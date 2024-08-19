@@ -2,10 +2,10 @@ import express from 'express';
 
 const router = express.Router();
 
-// /api/auth/{endpoint}
+// /api/accomplishment/{endpoint}
 
-router.get("/accomplishments", (req, res) => {
-    res.send("accomplishments");
+router.get("/tracker", (req, res) => {
+    res.send("tracker");
 })
 
 export default router;

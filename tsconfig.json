@@ -10,6 +10,8 @@
 		"skipLibCheck": true // this option will skip type checking all .d.ts files.
 	},
 	"ts-node": {
+		"experimentalSpecifierResolution": "node",
+    	"transpileOnly": true,
 		"esm": true
 	},
 	"include": ["backend/src/**/*"], // Specifies which files to include when compiling your project.

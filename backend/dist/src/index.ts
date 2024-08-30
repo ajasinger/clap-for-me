@@ -8,6 +8,8 @@ dotenv.config();
 const app = express();
 const port = 5001;
 
+app.use(express.json()); //used to parse json data
+
 // app.get("/", (req, res) => {
 //     res.send("hello world");
 // });

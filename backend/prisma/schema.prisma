@@ -22,7 +22,7 @@ model User {
   fullName String 
   password String
   email String
-  reminder Reminder
+  // reminder Reminder
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   

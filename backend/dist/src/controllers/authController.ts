@@ -22,10 +22,36 @@ export const signup = async(req: Request, res: Response) => {
         }
 
         //hash password 
-        const salt = await bcryptjs.js.genSalt(10);
+        const salt = await bcryptjs.genSalt(10);
         const hashedPassword = await bcryptjs.hash(password, salt);
 
+        //add new user to db
+        const newUser = await prisma.user.create({
+            data: {
+                fullName,
+                username,
+                password: hashedPassword,
+                email
+            } 
+        })
+
+        //if new user created generate a token
+        if(newUser) {
+            //generate token
+
+            res.status(201).json({ 
+                id: newUser.id,
+                fullname: newUser.fullName,
+                username: newUser.username,
+                email: newUser.email
+             })
+        } else {
+            res.status(400).json({ error: "new user not created" })
+        }
+
     } catch(error) {
+        console.log("error in signup controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" })
 
     }
 };

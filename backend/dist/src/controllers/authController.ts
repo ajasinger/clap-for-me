@@ -16,7 +16,7 @@ export const signup = async(req: Request, res: Response) => {
         // }
 
         //check if user exists already
-        const user = await prisma.user.findUnique({ where: { username } })
+        const user = await prisma.user.findUnique({ where: { username } });
 
         if(user) {
             return res.status(400).json({ error: "username already exists"});
@@ -57,5 +57,27 @@ export const signup = async(req: Request, res: Response) => {
     }
 };
 
-export const login = async(req: Request, res: Response) => {};
+export const login = async(req: Request, res: Response) => {
+    const { username, password } = req.body;
+
+    try {
+        //check if user exists already
+        const user = await prisma.user.findUnique({ where: { username } });
+
+        //check password
+        if (user && user.password) {
+            const isPasswordCorrect = await bcryptjs.compare(password, user?.password);
+
+            if(!isPasswordCorrect) return res.status(400).json({ error: "Invalid password" });
+
+        } else {
+            return res.status(400).json({ error: "Invalid credentials" });
+        }
+
+    } catch(error) {
+        console.log("error in signup controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" })
+    }
+};
+
 export const logout = async(req: Request, res: Response) => {};

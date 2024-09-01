@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import prisma from '../db/prisma.ts';
+import prisma from '../db/prisma';
 import bcryptjs from 'bcryptjs';
-import generateToken from "../utils/generateToken.ts";
+import generateToken from "../utils/generateToken";
 
 export const signup = async(req: Request, res: Response) => {
     try {
@@ -51,7 +51,7 @@ export const signup = async(req: Request, res: Response) => {
             res.status(400).json({ error: "new user not created" })
         }
 
-    } catch(error) {
+    } catch(error: any) {
         console.log("error in signup controller", error.message);
         res.status(500).json({ error: "Internal Server Error" })
     }
@@ -74,7 +74,7 @@ export const login = async(req: Request, res: Response) => {
             return res.status(400).json({ error: "Invalid credentials" });
         }
 
-    } catch(error) {
+    } catch(error: any) {
         console.log("error in login controller", error.message);
         res.status(500).json({ error: "Internal Server Error" });
     }
@@ -84,7 +84,7 @@ export const logout = async(req: Request, res: Response) => {
     try {
         res.cookie("jwt", "", {maxAge: 0});
         res.status(200).json({ message: "Logged out successfully "});
-    } catch(error) {
+    } catch(error: any) {
         console.log("error in logout controller", error.message);
         res.status(500).json({ error: "Internal Server Error" });
     }

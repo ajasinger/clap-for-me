@@ -21,7 +21,7 @@ model User {
   username String @unique
   fullName String 
   password String
-  email String
+  email String @unique
   // reminder Reminder
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -36,7 +36,7 @@ model Achievement {
   creatorId String
   creator User @relation(fields:[creatorId], references: [id])
   body String
-  //tags String[]
+  tags String[]
   createdAt DateTime
   updatedAt DateTime
 }

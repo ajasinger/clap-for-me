@@ -75,9 +75,17 @@ export const login = async(req: Request, res: Response) => {
         }
 
     } catch(error) {
-        console.log("error in signup controller", error.message);
-        res.status(500).json({ error: "Internal Server Error" })
+        console.log("error in login controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 };
 
-export const logout = async(req: Request, res: Response) => {};
+export const logout = async(req: Request, res: Response) => {
+    try {
+        req.cookies("jwt", "", {maxAge: 0});
+        res.status(200).json({ message: "Logged out successfully "});
+    } catch(error) {
+        console.log("error in logout controller", error.message);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};

@@ -1,6 +1,6 @@
 import express from "express";
-import authRoutes from './route/auth.ts';
-import accomplishmentRoutes from './route/accomplishment.ts';
+import authRoutes from './route/auth';
+import accomplishmentRoutes from './route/accomplishment';
 
 import dotenv from "dotenv";
 dotenv.config();

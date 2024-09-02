@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import authRoutes from './route/auth';
 import accomplishmentRoutes from './route/accomplishment';
 

@@ -6,9 +6,10 @@ const router = express.Router();
 
 // url/api/auth/{endpoint}
 
-router.get("/me", protectRoute, getUser); //check if user is logged in
 router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);
+//check if user is logged in
+router.get("/me", protectRoute, getUser); 
 
 export default router;

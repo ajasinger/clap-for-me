@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec 'node --no-warnings=ExperimentalWarning --loader ts-node/esm' backend/src/index.ts"
+    "dev": "nodemon --exec 'node --no-warnings=ExperimentalWarning --loader ts-node/esm' backend/src/index.ts",
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "type": "module",
   "keywords": [],

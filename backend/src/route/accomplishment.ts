@@ -1,11 +1,12 @@
 import express from 'express';
+import protectRoute from '../middleware/protectRoute';
+import { addAchievement } from '../controllers/achievementController';
 
 const router = express.Router();
 
 // /api/accomplishment/{endpoint}
 
-router.get("/tracker", (req, res) => {
-    res.send("tracker");
-})
+//if user is authenticated call addAchievement function
+router.post("/add", protectRoute, addAchievement)
 
 export default router;

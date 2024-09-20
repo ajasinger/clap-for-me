@@ -14,9 +14,10 @@ export const addAchievement = async (req: Request, res: Response) => {
                       id: userId,  // Assuming you have the user's id
                     },
                 },
-
             }
         });
+
+        if(newAchievement) res.status(201).json(newAchievement)
 
     } catch(error: any) {
         console.log("error in addAchievement", error.message);

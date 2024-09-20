@@ -9,7 +9,12 @@ export const addAchievement = async (req: Request, res: Response) => {
         const newAchievement = await prisma.achievement.create({
             data: {
                 body: achievement, 
-                creator: userId
+                creator: {
+                    connect: {
+                      id: userId,  // Assuming you have the user's id
+                    },
+                },
+
             }
         });
 

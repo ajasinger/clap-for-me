@@ -37,8 +37,8 @@ model Achievement {
   creator User @relation(fields:[creatorId], references: [id])
   body String
   tags String[]
-  createdAt DateTime
-  updatedAt DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 // enum Reminder {

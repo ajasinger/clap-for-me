@@ -39,6 +39,8 @@ export const getAchievements = async (req: Request, res: Response) => {
             }
         })
 
+        if(!achievements) return res.status(200).json([]);
+
         if(achievements) res.status(201).json(achievements)
 
     } catch(error: any) {

@@ -30,7 +30,7 @@ export default function Signup() {
                 id="lastName"
                 name="lastNamel"
                 type="lastName"
-                value={email}
+                value={lastName}
                 onChange={e => setLastName(e.target.value)}
                 placeholder="Douglas"
                 aria-label="enter your last name"

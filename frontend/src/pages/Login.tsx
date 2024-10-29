@@ -39,13 +39,14 @@ export default function Login() {
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
-                        placeholder="password"
+                        placeholder="*******"
                         aria-label="enter your password"
                         className="border border-black p-2 w-80"
                     />
                 </div>
                 {/* Forgot password link */}
                 <button 
+                    type="submit"
                     className="text-white bg-black w-fit px-10 py-2 mt-6 rounded-full border-2 border-transparent hover:border-current hover:text-black hover:bg-transparent transition duration-300 ease-in-out"
                 >
                     LOGIN

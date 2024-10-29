@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Footer from './components/Footer';
+import Settings from './pages/Settings';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={ < Home /> } />
         <Route path="/signup" element={ < Signup /> } />
         <Route path="/login" element={ < Login /> } />
+        <Route path="/settings" element={ < Settings /> } />
       </Routes>
       </div>
       <Footer />

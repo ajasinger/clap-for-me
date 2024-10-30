@@ -6,7 +6,7 @@ type TagDropdownProps = {
     tagColor: (tag: string) => string;
     setTagOptions: React.Dispatch<React.SetStateAction<string[]>>;
     setAchievements: React.Dispatch<React.SetStateAction<{ date: string; achievements: { id: number; body: string; tags: string[]; }[]; }[]>>;
-  };
+};
 
   
 

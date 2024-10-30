@@ -5,9 +5,9 @@ export default function Navbar() {
         <div className="bg-[#FFDB7D] p-6 flex items-center justify-between">
             <h1 className="text-2xl font-black">FTW</h1>
             <div className="flex gap-6 items-center font-semibold">
-                <Link to={"/settings"} className="border-b-2 border-transparent hover:border-current transition duration-300 ease-in-out">
+                {/* <Link to={"/settings"} className="border-b-2 border-transparent hover:border-current transition duration-300 ease-in-out">
                     SETTINGS
-                </Link>
+                </Link> */}
                 <Link to={"/contact"} className="border-b-2 border-transparent hover:border-current transition duration-300 ease-in-out">
                     CONTACT
                 </Link>

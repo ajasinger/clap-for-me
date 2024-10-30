@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TagDropdown from "./TagDropdown";
+import AchievementInput from "./AchievementInput";
 
 // Data
 const tagOptionsArray = ["work", "health", "family"]
@@ -95,6 +96,12 @@ export default function Achievements() {
                 ))}
             </ol>
             {/* add achievement */}
+            <AchievementInput 
+                setAchievements={setAchievements} 
+                tagColor={tagColor}
+                setTagOptions={setTagOptions} 
+                tagOptions={tagOptions}
+            />
         </div>
     )
 }

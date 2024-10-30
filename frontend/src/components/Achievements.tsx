@@ -26,8 +26,19 @@ const data = [
         }
 ]
 
+type Achievement = {
+    id: number;
+    body: string;
+    tags: string[];
+  };
+  
+  type Achievements = {
+    date: string;
+    achievements: Achievement[];
+  };
+
 export default function Achievements() {
-    const [achievements, setAchievements] = useState(data);
+    const [achievements, setAchievements] = useState<Achievements[]>(data);
     const [tagOptions, setTagOptions] = useState(tagOptionsArray)
 
 

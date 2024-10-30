@@ -2,7 +2,7 @@ import { useState } from "react";
 import TagDropdown from "./TagDropdown";
 
 // Data
-const tagOptionsArray = ["work", "fitness", "family"]
+const tagOptionsArray = ["work", "health", "family"]
 
 const data = [
         {
@@ -65,7 +65,7 @@ export default function Achievements() {
                 {achievements[0].achievements.map((achievement) => (
                     <li key={achievement.id} className="flex items-center gap-12">
                         {/* dropdown */}
-                        < TagDropdown id={achievement.id} tagOptions={tagOptions} setTagOptions={setTagOptions} setAchievements={setAchievements}/>
+                        < TagDropdown id={achievement.id} tagOptions={tagOptions} setTagOptions={setTagOptions} setAchievements={setAchievements} tagColor={tagColor}/>
                         {/* achievement */}
                         <div className="flex items-center gap-6">
                             <p>{achievement.body}</p>

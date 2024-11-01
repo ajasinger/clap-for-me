@@ -56,8 +56,8 @@ const tagColor = (tag: string) => {
 
 export default function Achievements() {
     const [achievements, setAchievements] = useState<Achievements[]>(data);
-    const [tagOptions, setTagOptions] = useState(tagOptionsArray)
-    const [isEditing, setIsEditing] = useState(false);
+    const [tagOptions, setTagOptions] = useState<string[]>(tagOptionsArray)
+    const [isEditing, setIsEditing] = useState<boolean>(false);
 
 
     return(

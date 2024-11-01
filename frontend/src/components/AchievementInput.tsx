@@ -46,9 +46,15 @@ export default function AchievementInput({ date, setAchievements, tagColor, setT
         setNewTags([]);
     }
 
+    const handleAddTag = (addTag:string) => {
+        setNewTags(prevTags => [...prevTags, addTag])
+        setTagOptions(tagOptions.filter(tag => tag !== addTag));
+    }
+
     const handleDelete = (deleteTag:string) => {
         const filteredTags = newTags.filter(tag => tag !== deleteTag);
         setNewTags(filteredTags);
+        setTagOptions([...tagOptions, deleteTag]);
     }
 
     return(
@@ -86,7 +92,7 @@ export default function AchievementInput({ date, setAchievements, tagColor, setT
                                 onMouseEnter={(e) => e.currentTarget.classList.add(tagColor(tag))}
                                 onMouseLeave={(e) => e.currentTarget.classList.remove(tagColor(tag))}
                                 className="border border-black px-6 py-1 rounded-full cursor-pointer"
-                                onClick={() => setNewTags(prevTags => [...prevTags, tag])}
+                                onClick={() => handleAddTag(tag)}
                             >
                                 {`+ ${tag}`}
                             </li>

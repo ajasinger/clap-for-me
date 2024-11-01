@@ -29,6 +29,10 @@ const data = [
 ]
 
 // Types
+type AchievementProps = {
+    date: string;
+};
+
 type Achievement = {
     id: number;
     body: string;
@@ -54,7 +58,7 @@ const tagColor = (tag: string) => {
       }
 }
 
-export default function Achievements() {
+export default function Achievements({ date }: AchievementProps) {
     const [achievements, setAchievements] = useState<Achievements[]>(data);
     const [tagOptions, setTagOptions] = useState<string[]>(tagOptionsArray)
     const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -62,7 +66,7 @@ export default function Achievements() {
 
     return(
         <div className="flex flex-col gap-6">
-            <h1 className="text-xl font-bold">{achievements[0].date}</h1>
+            <h1 className="text-xl font-bold">{date}</h1>
             <ol className="flex flex-col gap-6">
                 {achievements[0].achievements.map((achievement, index) => (
                     <li key={achievement.id} className="flex items-center gap-12">

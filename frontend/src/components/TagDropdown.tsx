@@ -11,7 +11,7 @@ type TagDropdownProps = {
   
 
 export default function TagDropdown({id, tagColor, tagOptions, setTagOptions, setAchievements}: TagDropdownProps) {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleTagClick = (tag: string) => {
         setTagOptions((prevData) => [...prevData, tag])

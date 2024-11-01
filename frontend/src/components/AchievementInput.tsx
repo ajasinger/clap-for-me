@@ -89,6 +89,12 @@ export default function AchievementInput({ date, setAchievements, tagColor, setT
                                 {`+ ${tag}`}
                             </li>
                         ))}
+                        {/* <li
+                            className="border border-black px-6 py-1 rounded-full"
+                            onClick={handleCustomTag}
+                        >
+                            + custum
+                        </li> */}
                     </ul>
                 </div>
                 <button type="submit" className="bg-black rounded-full text-white w-fit px-6 py-2 mt-6">

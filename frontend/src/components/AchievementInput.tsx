@@ -8,7 +8,7 @@ type AchievementInputProps = {
 };
 
 export default function AchievementInput({ setAchievements, tagColor, setTagOptions, tagOptions}: AchievementInputProps) {
-    const [newAchievement, setNewAchievement] = useState('');
+    const [newAchievement, setNewAchievement] = useState<string>('');
     const [newTags, setNewTags] = useState<string[]>([]);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,6 +16,10 @@ export default function AchievementInput({ setAchievements, tagColor, setTagOpti
 
         //match date
         //for that date add object 
+
+        //reset states
+        setNewAchievement('');
+        setNewTags([]);
     }
 
     const handleDelete = (deleteTag:string) => {

@@ -1,21 +1,45 @@
 import { useState } from "react";
 
 type AchievementInputProps = {
+    date: string
     tagColor: (tag: string) => string;
     tagOptions: string[];
     setTagOptions: React.Dispatch<React.SetStateAction<string[]>>;
     setAchievements: React.Dispatch<React.SetStateAction<{ date: string; achievements: { id: number; body: string; tags: string[]; }[]; }[]>>;
 };
 
-export default function AchievementInput({ setAchievements, tagColor, setTagOptions, tagOptions}: AchievementInputProps) {
+export default function AchievementInput({ date, setAchievements, tagColor, setTagOptions, tagOptions}: AchievementInputProps) {
     const [newAchievement, setNewAchievement] = useState<string>('');
     const [newTags, setNewTags] = useState<string[]>([]);
+    const [error, setError] = useState<boolean>(false)
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        //match date
-        //for that date add object 
+        try{
+            //update URL
+            const res = await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    date,
+                    newAchievement,
+                    newTags
+                })
+            })
+
+            if(!res.ok) setError(true);
+
+            const resData = await res.json();
+            //format data??
+            setAchievements(prevAchievements => [...prevAchievements, resData]);
+
+        } catch(error) {
+            console.log(error);
+            setError(true);
+        }
 
         //reset states
         setNewAchievement('');
@@ -37,7 +61,7 @@ export default function AchievementInput({ setAchievements, tagColor, setTagOpti
                         className="w-full"
                         rows={4}
                         placeholder="your achievement"
-                        onChange={e => setNewAchievement(e.target.value)}
+                        onChange={e => setNewAchievement(e.target.value.trim())}
                         value={newAchievement}
                     />
                     <ul className="flex gap-2 min-h-8">
@@ -71,6 +95,7 @@ export default function AchievementInput({ setAchievements, tagColor, setTagOpti
                     Add achievement
                 </button>
             </form>
+            {error && <p>There was an error adding your new achievement.</p>}
         </div>
     )
 }

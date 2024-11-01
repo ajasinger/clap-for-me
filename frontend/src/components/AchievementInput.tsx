@@ -68,11 +68,11 @@ export default function AchievementInput({ date, setAchievements, tagColor, setT
                         {newTags.length > 0 && newTags.map((tag, index) => (
                             <li 
                                 key={index}
-                                style={{ backgroundColor: tagColor(tag) }}
-                                className="flex gap-2 px-6 py-1 rounded-full"
+                                className={`border border-transparent hover:border-black flex gap-2 px-6 py-1 rounded-full ${tagColor(tag)} cursor-pointer`}
+                                onClick={()=>handleDelete(tag)}
                             >
                                 {tag}
-                                <button onClick={()=>handleDelete(tag)}>x</button>
+                                <p>x</p>
                             </li>
                         ))}
                     </ul>
@@ -83,7 +83,9 @@ export default function AchievementInput({ date, setAchievements, tagColor, setT
                         {tagOptions.map((tag, index) => (
                             <li 
                                 key={index}
-                                className="border border-black px-6 py-1 rounded-full"
+                                onMouseEnter={(e) => e.currentTarget.classList.add(tagColor(tag))}
+                                onMouseLeave={(e) => e.currentTarget.classList.remove(tagColor(tag))}
+                                className="border border-black px-6 py-1 rounded-full cursor-pointer"
                                 onClick={() => setNewTags(prevTags => [...prevTags, tag])}
                             >
                                 {`+ ${tag}`}

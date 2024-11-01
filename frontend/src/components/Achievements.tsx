@@ -48,13 +48,13 @@ type Achievement = {
 const tagColor = (tag: string) => {
     switch (tag) {
         case 'work':
-          return '#BAFEC9'
+          return 'bg-green-200'
         case 'health':
-          return '#BAC5FE'
+          return 'bg-indigo-200'
         case 'family':
-          return '#FEBABA'
+          return 'bg-red-200'
         default:
-          return '#BAEAFE'
+          return 'bg-lightBlue-200'
       }
 }
 
@@ -87,8 +87,8 @@ export default function Achievements({ date }: AchievementProps) {
                                 {achievement.tags.map((tag, index) => (
                                     <li 
                                         key={index}
-                                        style={{ backgroundColor: tagColor(tag) }}
-                                        className="px-6 py-1 rounded-full"
+                                        //style={{ backgroundColor: tagColor(tag) }}
+                                        className={`px-6 py-1 rounded-full ${tagColor(tag)}`}
                                     >
                                         {tag}
                                     </li>

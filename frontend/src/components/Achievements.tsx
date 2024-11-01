@@ -101,6 +101,7 @@ export default function Achievements({ date }: AchievementProps) {
             </ol>
             {/* add achievement */}
             <AchievementInput 
+                date={date}
                 setAchievements={setAchievements} 
                 tagColor={tagColor}
                 setTagOptions={setTagOptions} 
